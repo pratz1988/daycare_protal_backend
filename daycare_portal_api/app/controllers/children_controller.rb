@@ -10,7 +10,7 @@ class ChildrenController < ApplicationController
 
   # GET /children/1
   def show
-    render json: @child
+    render json: @child.to_json(include: :activities)
   end
 
   # POST /children

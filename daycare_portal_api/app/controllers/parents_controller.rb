@@ -10,7 +10,7 @@ class ParentsController < ApplicationController
 
   # GET /parents/1
   def show
-    render json: @parent
+    render json: @parent.to_json(include: :children)
   end
 
   # POST /parents

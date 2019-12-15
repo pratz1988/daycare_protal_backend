@@ -418,3 +418,535 @@ Processing by ChildrenController#show as HTML
 Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 2.0ms | Allocations: 722)
 
 
+Started GET "/children/" for ::1 at 2019-12-14 20:19:55 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.8ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.8ms | Allocations: 4061)
+
+
+Started GET "/children/1" for ::1 at 2019-12-14 20:19:58 -0500
+Processing by ChildrenController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChild Load (0.5ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:44:in `set_child'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 750)
+
+
+Started GET "/children/show/1" for ::1 at 2019-12-14 20:20:03 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/children/show/1"):
+  
+actionpack (6.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/children" for ::1 at 2019-12-14 20:20:21 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.4ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 3980)
+
+
+Started GET "/children1" for ::1 at 2019-12-14 20:20:26 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/children1"):
+  
+actionpack (6.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/children" for ::1 at 2019-12-14 20:20:29 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.4ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.4ms | Allocations: 3980)
+
+
+Started GET "/children/" for ::1 at 2019-12-14 20:20:33 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.5ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.5ms | Allocations: 3981)
+
+
+Started GET "/children/" for ::1 at 2019-12-14 20:20:40 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.4ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms | Allocations: 3981)
+
+
+Started GET "/children/1" for ::1 at 2019-12-14 20:20:43 -0500
+Processing by ChildrenController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChild Load (0.8ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:44:in `set_child'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 723)
+
+
+Started GET "/children/" for ::1 at 2019-12-14 20:20:51 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.5ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.5ms | Allocations: 3981)
+
+
+Started GET "/children/1" for ::1 at 2019-12-14 20:20:53 -0500
+Processing by ChildrenController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChild Load (0.6ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:44:in `set_child'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 723)
+
+
+Started GET "/parents/1" for ::1 at 2019-12-14 20:26:12 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mParent Load (0.6ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:44:in `set_parent'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 4036)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 20:26:17 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (1.4ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:44:in `set_parent'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 687)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 20:28:14 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:44:in `set_parent'
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."parent_id" = $1[0m  [["parent_id", 2]]
+  ↳ app/controllers/parents_controller.rb:13:in `show'
+Completed 200 OK in 63ms (Views: 0.1ms | ActiveRecord: 17.6ms | Allocations: 13815)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 20:28:29 -0500
+  
+SyntaxError (/Users/pratz/Desktop/daycarePortalApp/daycare_portal_backend/daycare_portal_api/app/controllers/parents_controller.rb:13: syntax error, unexpected ':', expecting ')'
+...nt.to_json(include: :children :activities)
+...                              ^
+/Users/pratz/Desktop/daycarePortalApp/daycare_portal_backend/daycare_portal_api/app/controllers/parents_controller.rb:51: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/parents_controller.rb:13: syntax error, unexpected ':', expecting ')'
+app/controllers/parents_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+app/controllers/parents_controller.rb:13: syntax error, unexpected ':', expecting ')'
+app/controllers/parents_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+Started GET "/parents/2" for ::1 at 2019-12-14 20:28:40 -0500
+  
+SyntaxError (/Users/pratz/Desktop/daycarePortalApp/daycare_portal_backend/daycare_portal_api/app/controllers/parents_controller.rb:13: syntax error, unexpected tIDENTIFIER, expecting ')'
+...json(include: :children include: :activities)
+...                        ^~~~~~~
+/Users/pratz/Desktop/daycarePortalApp/daycare_portal_backend/daycare_portal_api/app/controllers/parents_controller.rb:51: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/parents_controller.rb:13: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/parents_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+app/controllers/parents_controller.rb:13: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/parents_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+Started GET "/parents/2" for ::1 at 2019-12-14 20:28:53 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:44:in `set_parent'
+  [1m[36mChild Load (0.2ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."parent_id" = $1[0m  [["parent_id", 2]]
+  ↳ app/controllers/parents_controller.rb:13:in `show'
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 6.3ms | Allocations: 10597)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 20:30:57 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.3ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:46:in `set_parent'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 4.2ms | Allocations: 5568)
+
+
+  
+NoMethodError (undefined method `actions' for nil:NilClass):
+  
+app/controllers/parents_controller.rb:14:in `show'
+Started GET "/parents/2" for ::1 at 2019-12-14 20:31:15 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.3ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:46:in `set_parent'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 4.0ms | Allocations: 5567)
+
+
+  
+NoMethodError (undefined method `activity' for nil:NilClass):
+  
+app/controllers/parents_controller.rb:14:in `show'
+Started GET "/parents/2" for ::1 at 2019-12-14 20:31:21 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:45:in `set_parent'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 3.9ms | Allocations: 5268)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 20:32:43 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:45:in `set_parent'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 5226)
+
+
+Started GET "/parents/1" for ::1 at 2019-12-14 20:32:47 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mParent Load (0.3ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:45:in `set_parent'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 729)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 20:32:50 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.6ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:45:in `set_parent'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 726)
+
+
+Started GET "/parents/3" for ::1 at 2019-12-14 20:32:52 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:45:in `set_parent'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 726)
+
+
+Started GET "/parents/4" for ::1 at 2019-12-14 20:32:54 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:45:in `set_parent'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 726)
+
+
+Started GET "/parents/4" for ::1 at 2019-12-14 20:34:18 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:45:in `set_parent'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 3.2ms | Allocations: 5268)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 20:34:20 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.3ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:45:in `set_parent'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 726)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 22:43:31 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.4ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:44:in `set_parent'
+  [1m[36mChild Load (0.8ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."parent_id" = $1[0m  [["parent_id", 2]]
+  ↳ app/controllers/parents_controller.rb:13:in `show'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 7.8ms | Allocations: 10560)
+
+
+Started GET "/parents" for ::1 at 2019-12-14 22:43:49 -0500
+Processing by ParentsController#index as HTML
+  [1m[36mParent Load (1.4ms)[0m  [1m[34mSELECT "parents".* FROM "parents"[0m
+  ↳ app/controllers/parents_controller.rb:8:in `index'
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 1.4ms | Allocations: 3005)
+
+
+Started GET "/children" for ::1 at 2019-12-14 22:43:51 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.6ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.6ms | Allocations: 4015)
+
+
+Started GET "/teachers" for ::1 at 2019-12-14 22:44:25 -0500
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (3.0ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers"[0m
+  ↳ app/controllers/teachers_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 6.7ms | ActiveRecord: 6.5ms | Allocations: 5405)
+
+
+Started GET "/activities" for ::1 at 2019-12-14 22:44:31 -0500
+Processing by ActivitiesController#index as HTML
+  [1m[36mActivity Load (2.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/controllers/activities_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 20.3ms | ActiveRecord: 6.7ms | Allocations: 11858)
+
+
+Started GET "/activities" for ::1 at 2019-12-14 22:46:10 -0500
+Processing by ActivitiesController#index as HTML
+  [1m[36mActivity Load (0.7ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/controllers/activities_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.7ms | Allocations: 3343)
+
+
+Started GET "/teachers" for ::1 at 2019-12-14 22:46:14 -0500
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers"[0m
+  ↳ app/controllers/teachers_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1011)
+
+
+Started GET "/children" for ::1 at 2019-12-14 22:46:16 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.3ms | Allocations: 2383)
+
+
+Started GET "/parents" for ::1 at 2019-12-14 22:46:19 -0500
+Processing by ParentsController#index as HTML
+  [1m[36mParent Load (0.6ms)[0m  [1m[34mSELECT "parents".* FROM "parents"[0m
+  ↳ app/controllers/parents_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms | Allocations: 1890)
+
+
+Started GET "/parents/2" for ::1 at 2019-12-14 22:46:27 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mParent Load (0.3ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:44:in `set_parent'
+  [1m[36mChild Load (0.6ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."parent_id" = $1[0m  [["parent_id", 2]]
+  ↳ app/controllers/parents_controller.rb:13:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 1569)
+
+
+Started GET "/parents/4" for ::1 at 2019-12-14 22:46:35 -0500
+Processing by ParentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mParent Load (0.4ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/parents_controller.rb:44:in `set_parent'
+  [1m[36mChild Load (0.5ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."parent_id" = $1[0m  [["parent_id", 4]]
+  ↳ app/controllers/parents_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1708)
+
+
+Started GET "/children/1" for ::1 at 2019-12-14 22:46:47 -0500
+Processing by ChildrenController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:44:in `set_child'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms | Allocations: 3068)
+
+
+  
+NoMethodError (undefined method `activities' for #<Child:0x00007fb09f8f3390>
+Did you mean?  activity_ids
+               activity
+               activity=):
+  
+app/controllers/children_controller.rb:13:in `show'
+Started GET "/children/" for ::1 at 2019-12-14 22:46:51 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 2382)
+
+
+Started GET "/children/1" for ::1 at 2019-12-14 22:46:56 -0500
+Processing by ChildrenController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:44:in `set_child'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms | Allocations: 2916)
+
+
+  
+NoMethodError (undefined method `activities' for #<Child:0x00007fb09e6b6740>
+Did you mean?  activity_ids
+               activity
+               activity=):
+  
+app/controllers/children_controller.rb:13:in `show'
+Started GET "/children/1" for ::1 at 2019-12-14 22:48:53 -0500
+Processing by ChildrenController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:44:in `set_child'
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."child_id" = $1[0m  [["child_id", 1]]
+  ↳ app/controllers/children_controller.rb:13:in `show'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 7.1ms | Allocations: 16739)
+
+
+Started GET "/teachers" for ::1 at 2019-12-14 22:49:51 -0500
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.4ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers"[0m
+  ↳ app/controllers/teachers_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 12.6ms | ActiveRecord: 9.0ms | Allocations: 5369)
+
+
+Started GET "/teachers/1" for ::1 at 2019-12-14 22:49:54 -0500
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teachers_controller.rb:44:in `set_teacher'
+  [1m[36mChild Load (0.4ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/teachers_controller.rb:13:in `show'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 4.7ms | Allocations: 8724)
+
+
+Started GET "/teachers/2" for ::1 at 2019-12-14 22:50:08 -0500
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teachers_controller.rb:44:in `set_teacher'
+  [1m[36mChild Load (0.5ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."teacher_id" = $1[0m  [["teacher_id", 2]]
+  ↳ app/controllers/teachers_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1448)
+
+
+Started GET "/teachers/1" for ::1 at 2019-12-14 22:50:21 -0500
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeacher Load (0.4ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teachers_controller.rb:44:in `set_teacher'
+  [1m[36mChild Load (0.7ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/teachers_controller.rb:13:in `show'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 3097)
+
+
+Started GET "/teachers/1/students/1" for ::1 at 2019-12-14 22:52:50 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/teachers/1/students/1"):
+  
+actionpack (6.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/teachers/1/children/1" for ::1 at 2019-12-14 22:52:56 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/teachers/1/children/1"):
+  
+actionpack (6.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/teachers/1/childrens/1" for ::1 at 2019-12-14 22:53:04 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/teachers/1/childrens/1"):
+  
+actionpack (6.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/teachers/1/" for ::1 at 2019-12-14 22:53:09 -0500
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teachers_controller.rb:44:in `set_teacher'
+  [1m[36mChild Load (0.6ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/controllers/teachers_controller.rb:13:in `show'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 3096)
+
+
+Started GET "/teachers/2" for ::1 at 2019-12-14 23:23:07 -0500
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeacher Load (0.6ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teachers_controller.rb:44:in `set_teacher'
+  [1m[36mChild Load (0.4ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."teacher_id" = $1[0m  [["teacher_id", 2]]
+  ↳ app/controllers/teachers_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 1552)
+
+
