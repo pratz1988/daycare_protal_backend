@@ -1,0 +1,420 @@
+  [1m[35m (97.7ms)[0m  [1m[35mCREATE DATABASE "daycare_portal_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (112.3ms)[0m  [1m[35mCREATE DATABASE "daycare_portal_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4494822570825221880)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTeachers (20191215003120)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" bigserial primary key, "teacherName" character varying, "className" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191215003120"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateParents (20191215003128)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "parents" ("id" bigserial primary key, "parentName" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191215003128"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivities (20191215003154)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "breakfast" character varying, "morningActivity" character varying, "lunch" character varying, "napStartTime" time, "napEndTime" time, "afternoonSnack" character varying, "afternoonActivity" character varying, "date" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191215003154"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateChildren (20191215003221)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "children" ("id" bigserial primary key, "childName" character varying, "noteFromParent" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191215003221"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToActivities (20191215003532)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "activities" ADD "child_id" integer[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "activities" ADD "teacher_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191215003532"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToChildren (20191215003549)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "children" ADD "parent_id" integer[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "children" ADD "teacher_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191215003549"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-15 00:38:35.016122"], ["updated_at", "2019-12-15 00:38:35.016122"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4494822570825221880)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (1.5ms)[0m  [1m[32mINSERT INTO "teachers" ("teacherName", "className", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["teacherName", "mimi"], ["className", "tolddlers"], ["created_at", "2019-12-15 00:41:35.005113"], ["updated_at", "2019-12-15 00:41:35.005113"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.3ms)[0m  [1m[32mINSERT INTO "teachers" ("teacherName", "className", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["teacherName", "nini"], ["className", "2years"], ["created_at", "2019-12-15 00:41:35.011076"], ["updated_at", "2019-12-15 00:41:35.011076"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (1.8ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Pratz"], ["created_at", "2019-12-15 00:41:35.024983"], ["updated_at", "2019-12-15 00:41:35.024983"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Shwetha"], ["created_at", "2019-12-15 00:41:35.031241"], ["updated_at", "2019-12-15 00:41:35.031241"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Sadhana"], ["created_at", "2019-12-15 00:41:35.035156"], ["updated_at", "2019-12-15 00:41:35.035156"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Lavanya"], ["created_at", "2019-12-15 00:41:35.039708"], ["updated_at", "2019-12-15 00:41:35.039708"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Deepthi"], ["created_at", "2019-12-15 00:41:35.043785"], ["updated_at", "2019-12-15 00:41:35.043785"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.2ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Madhu"], ["created_at", "2019-12-15 00:41:35.047999"], ["updated_at", "2019-12-15 00:41:35.047999"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.2ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Shilpa"], ["created_at", "2019-12-15 00:41:35.051720"], ["updated_at", "2019-12-15 00:41:35.051720"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.5ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Usha"], ["created_at", "2019-12-15 00:41:35.055507"], ["updated_at", "2019-12-15 00:41:35.055507"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.4ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Kalyani"], ["created_at", "2019-12-15 00:41:35.060044"], ["updated_at", "2019-12-15 00:41:35.060044"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Swathi"], ["created_at", "2019-12-15 00:41:35.079292"], ["updated_at", "2019-12-15 00:41:35.079292"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.2ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Hainu"], ["created_at", "2019-12-15 00:41:35.083338"], ["updated_at", "2019-12-15 00:41:35.083338"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.5ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.3ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (1.5ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Vivvu"], ["noteFromParent", "plz apply coconut oil for every 1 hr on his elbows"], ["created_at", "2019-12-15 00:41:35.126607"], ["updated_at", "2019-12-15 00:41:35.126607"], ["parent_id", 1], ["teacher_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Shourya"], ["noteFromParent", "dont give milk to Shourya today"], ["created_at", "2019-12-15 00:41:35.135675"], ["updated_at", "2019-12-15 00:41:35.135675"], ["parent_id", 2], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Dimpi"], ["noteFromParent", "dont give to Dimpi milk today"], ["created_at", "2019-12-15 00:41:35.142713"], ["updated_at", "2019-12-15 00:41:35.142713"], ["parent_id", 3], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Ishan"], ["noteFromParent", "Carnky Today morning"], ["created_at", "2019-12-15 00:41:35.149565"], ["updated_at", "2019-12-15 00:41:35.149565"], ["parent_id", 4], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mChild Create (0.4ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Naini"], ["noteFromParent", "Plz use big Jacket"], ["created_at", "2019-12-15 00:41:35.157321"], ["updated_at", "2019-12-15 00:41:35.157321"], ["parent_id", 5], ["teacher_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Ashu"], ["noteFromParent", "Use Aquaphor"], ["created_at", "2019-12-15 00:41:35.165015"], ["updated_at", "2019-12-15 00:41:35.165015"], ["parent_id", 6], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.1ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Ishi"], ["noteFromParent", "Potty training start from today"], ["created_at", "2019-12-15 00:41:35.171781"], ["updated_at", "2019-12-15 00:41:35.171781"], ["parent_id", 4], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Arya"], ["noteFromParent", "put new clothes in his bag"], ["created_at", "2019-12-15 00:41:35.178523"], ["updated_at", "2019-12-15 00:41:35.178523"], ["parent_id", 7], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.1ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Anwi"], ["noteFromParent", "Plz apply aquaphor"], ["created_at", "2019-12-15 00:41:35.186472"], ["updated_at", "2019-12-15 00:41:35.186472"], ["parent_id", 8], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.1ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Sohan"], ["noteFromParent", "Sohan has diaperrash plz apply oil"], ["created_at", "2019-12-15 00:41:35.193572"], ["updated_at", "2019-12-15 00:41:35.193572"], ["parent_id", 9], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.1ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Dheeru"], ["noteFromParent", "plz apply moisturizer"], ["created_at", "2019-12-15 00:41:35.209885"], ["updated_at", "2019-12-15 00:41:35.209885"], ["parent_id", 10], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.1ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Ishika"], ["noteFromParent", "plz use sunscreen lotion"], ["created_at", "2019-12-15 00:41:35.216486"], ["updated_at", "2019-12-15 00:41:35.216486"], ["parent_id", 11], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.5ms)[0m  [1m[32mINSERT INTO "teachers" ("teacherName", "className", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["teacherName", "mimi"], ["className", "tolddlers"], ["created_at", "2019-12-15 00:43:11.628092"], ["updated_at", "2019-12-15 00:43:11.628092"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.3ms)[0m  [1m[32mINSERT INTO "teachers" ("teacherName", "className", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["teacherName", "nini"], ["className", "2years"], ["created_at", "2019-12-15 00:43:11.633718"], ["updated_at", "2019-12-15 00:43:11.633718"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.4ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Pratz"], ["created_at", "2019-12-15 00:43:11.644772"], ["updated_at", "2019-12-15 00:43:11.644772"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Shwetha"], ["created_at", "2019-12-15 00:43:11.649203"], ["updated_at", "2019-12-15 00:43:11.649203"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.2ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Sadhana"], ["created_at", "2019-12-15 00:43:11.652990"], ["updated_at", "2019-12-15 00:43:11.652990"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.2ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Lavanya"], ["created_at", "2019-12-15 00:43:11.656279"], ["updated_at", "2019-12-15 00:43:11.656279"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.2ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Deepthi"], ["created_at", "2019-12-15 00:43:11.660186"], ["updated_at", "2019-12-15 00:43:11.660186"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.2ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Madhu"], ["created_at", "2019-12-15 00:43:11.663619"], ["updated_at", "2019-12-15 00:43:11.663619"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Shilpa"], ["created_at", "2019-12-15 00:43:11.667256"], ["updated_at", "2019-12-15 00:43:11.667256"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.6ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Usha"], ["created_at", "2019-12-15 00:43:11.670870"], ["updated_at", "2019-12-15 00:43:11.670870"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.2ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Kalyani"], ["created_at", "2019-12-15 00:43:11.674971"], ["updated_at", "2019-12-15 00:43:11.674971"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Swathi"], ["created_at", "2019-12-15 00:43:11.694980"], ["updated_at", "2019-12-15 00:43:11.694980"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParent Create (0.3ms)[0m  [1m[32mINSERT INTO "parents" ("parentName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["parentName", "Hainu"], ["created_at", "2019-12-15 00:43:11.698709"], ["updated_at", "2019-12-15 00:43:11.698709"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.4ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Vivvu"], ["noteFromParent", "plz apply coconut oil for every 1 hr on his elbows"], ["created_at", "2019-12-15 00:43:11.720773"], ["updated_at", "2019-12-15 00:43:11.720773"], ["parent_id", 1], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Shourya"], ["noteFromParent", "dont give milk to Shourya today"], ["created_at", "2019-12-15 00:43:11.727528"], ["updated_at", "2019-12-15 00:43:11.727528"], ["parent_id", 2], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Dimpi"], ["noteFromParent", "dont give to Dimpi milk today"], ["created_at", "2019-12-15 00:43:11.733574"], ["updated_at", "2019-12-15 00:43:11.733574"], ["parent_id", 3], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Ishan"], ["noteFromParent", "Carnky Today morning"], ["created_at", "2019-12-15 00:43:11.740328"], ["updated_at", "2019-12-15 00:43:11.740328"], ["parent_id", 4], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Naini"], ["noteFromParent", "Plz use big Jacket"], ["created_at", "2019-12-15 00:43:11.746990"], ["updated_at", "2019-12-15 00:43:11.746990"], ["parent_id", 5], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Ashu"], ["noteFromParent", "Use Aquaphor"], ["created_at", "2019-12-15 00:43:11.754140"], ["updated_at", "2019-12-15 00:43:11.754140"], ["parent_id", 6], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.1ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Ishi"], ["noteFromParent", "Potty training start from today"], ["created_at", "2019-12-15 00:43:11.761457"], ["updated_at", "2019-12-15 00:43:11.761457"], ["parent_id", 4], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.1ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Arya"], ["noteFromParent", "put new clothes in his bag"], ["created_at", "2019-12-15 00:43:11.767206"], ["updated_at", "2019-12-15 00:43:11.767206"], ["parent_id", 7], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.1ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Anwi"], ["noteFromParent", "Plz apply aquaphor"], ["created_at", "2019-12-15 00:43:11.772955"], ["updated_at", "2019-12-15 00:43:11.772955"], ["parent_id", 8], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Sohan"], ["noteFromParent", "Sohan has diaperrash plz apply oil"], ["created_at", "2019-12-15 00:43:11.778885"], ["updated_at", "2019-12-15 00:43:11.778885"], ["parent_id", 9], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.3ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Dheeru"], ["noteFromParent", "plz apply moisturizer"], ["created_at", "2019-12-15 00:43:11.794706"], ["updated_at", "2019-12-15 00:43:11.794706"], ["parent_id", 10], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mParent Load (0.2ms)[0m  [1m[34mSELECT "parents".* FROM "parents" WHERE "parents"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("childName", "noteFromParent", "created_at", "updated_at", "parent_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["childName", "Ishika"], ["noteFromParent", "plz use sunscreen lotion"], ["created_at", "2019-12-15 00:43:11.800964"], ["updated_at", "2019-12-15 00:43:11.800964"], ["parent_id", 11], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (3.7ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "pancakes,milk"], ["morningActivity", "circular discussion, reading books"], ["lunch", "mac & chhese"], ["napStartTime", "01:00:00"], ["napEndTime", "03:00:00"], ["afternoonSnack", "GoldFish"], ["afternoonActivity", "playing outside with sandbox"], ["date", "2019-12-12"], ["created_at", "2019-12-15 00:43:11.822319"], ["updated_at", "2019-12-15 00:43:11.822319"], ["child_id", 1], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.2ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "pancakes,milk"], ["morningActivity", "circular discussion, reading books"], ["lunch", "mac & chhese"], ["napStartTime", "01:10:00"], ["napEndTime", "02:55:00"], ["afternoonSnack", "GoldFish"], ["afternoonActivity", "playing outside with slides"], ["date", "2019-12-12"], ["created_at", "2019-12-15 00:43:11.835088"], ["updated_at", "2019-12-15 00:43:11.835088"], ["child_id", 2], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.2ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "pancakes,milk"], ["morningActivity", "circular discussion, reading books"], ["lunch", "mac & chhese"], ["napStartTime", "01:20:00"], ["napEndTime", "03:00:00"], ["afternoonSnack", "GoldFish"], ["afternoonActivity", "playing outside with trucks"], ["date", "2019-12-12"], ["created_at", "2019-12-15 00:43:11.842436"], ["updated_at", "2019-12-15 00:43:11.842436"], ["child_id", 3], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "pancakes,milk"], ["morningActivity", "circular discussion, reading books"], ["lunch", "mac & chhese"], ["napStartTime", "01:00:00"], ["napEndTime", "03:05:00"], ["afternoonSnack", "GoldFish"], ["afternoonActivity", "playing outside with bikes"], ["date", "2019-12-12"], ["created_at", "2019-12-15 00:43:11.850853"], ["updated_at", "2019-12-15 00:43:11.850853"], ["child_id", 4], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.2ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "pancakes,milk"], ["morningActivity", "circular discussion, reading books"], ["lunch", "mac & chhese"], ["napStartTime", "01:10:00"], ["napEndTime", "03:10:00"], ["afternoonSnack", "GoldFish"], ["afternoonActivity", "playing outside with slides"], ["date", "2019-12-12"], ["created_at", "2019-12-15 00:43:11.858091"], ["updated_at", "2019-12-15 00:43:11.858091"], ["child_id", 5], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.3ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "pancakes,milk"], ["morningActivity", "circular discussion, reading books"], ["lunch", "mac & chhese"], ["napStartTime", "01:15:00"], ["napEndTime", "02:45:00"], ["afternoonSnack", "GoldFish"], ["afternoonActivity", "playing outside with sandbox"], ["date", "2019-12-12"], ["created_at", "2019-12-15 00:43:11.864700"], ["updated_at", "2019-12-15 00:43:11.864700"], ["child_id", 6], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "pancakes,milk"], ["morningActivity", "circular discussion, reading books"], ["lunch", "pasta"], ["napStartTime", "01:05:00"], ["napEndTime", "03:00:00"], ["afternoonSnack", "GoldFish"], ["afternoonActivity", "playing outside with bikes"], ["date", "2019-12-13"], ["created_at", "2019-12-15 00:43:11.871150"], ["updated_at", "2019-12-15 00:43:11.871150"], ["child_id", 7], ["teacher_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.3ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "scrambled egg,milk"], ["morningActivity", "circular discussion, reading books"], ["lunch", "pasta"], ["napStartTime", "01:15:00"], ["napEndTime", "02:45:00"], ["afternoonSnack", "Graham Craker"], ["afternoonActivity", "playing outside with sandbox"], ["date", "2019-12-11"], ["created_at", "2019-12-15 00:43:11.877295"], ["updated_at", "2019-12-15 00:43:11.877295"], ["child_id", 1], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mChild Load (0.4ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("breakfast", "morningActivity", "lunch", "napStartTime", "napEndTime", "afternoonSnack", "afternoonActivity", "date", "created_at", "updated_at", "child_id", "teacher_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["breakfast", "waffles,orange juice"], ["morningActivity", "circular discussion, reading books"], ["lunch", "pizza"], ["napStartTime", "02:45:00"], ["napEndTime", "02:45:00"], ["afternoonSnack", "Graham Craker"], ["afternoonActivity", "playing outside with bikes"], ["date", "2019-12-11"], ["created_at", "2019-12-15 00:43:11.884334"], ["updated_at", "2019-12-15 00:43:11.884334"], ["child_id", 1], ["teacher_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/teachers" for ::1 at 2019-12-14 19:46:10 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (1.0ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers"[0m
+  ↳ app/controllers/teachers_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 7.6ms | ActiveRecord: 5.7ms | Allocations: 6353)
+
+
+Started GET "/parents" for ::1 at 2019-12-14 19:46:16 -0500
+Processing by ParentsController#index as HTML
+  [1m[36mParent Load (0.7ms)[0m  [1m[34mSELECT "parents".* FROM "parents"[0m
+  ↳ app/controllers/parents_controller.rb:8:in `index'
+Completed 200 OK in 23ms (Views: 11.9ms | ActiveRecord: 8.4ms | Allocations: 6112)
+
+
+Started GET "/children" for ::1 at 2019-12-14 19:46:20 -0500
+Processing by ChildrenController#index as HTML
+  [1m[36mChild Load (0.7ms)[0m  [1m[34mSELECT "children".* FROM "children"[0m
+  ↳ app/controllers/children_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 14.6ms | ActiveRecord: 4.2ms | Allocations: 9767)
+
+
+Started GET "/activities" for ::1 at 2019-12-14 19:46:23 -0500
+Processing by ActivitiesController#index as HTML
+  [1m[36mActivity Load (6.8ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/controllers/activities_controller.rb:8:in `index'
+Completed 200 OK in 63ms (Views: 50.1ms | ActiveRecord: 10.6ms | Allocations: 12242)
+
+
+Started GET "/activities/1" for ::1 at 2019-12-14 19:48:26 -0500
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.6ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/activities_controller.rb:44:in `set_activity'
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 2832)
+
+
+Started GET "/activities/1/child" for ::1 at 2019-12-14 19:48:34 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/activities/1/child"):
+  
+actionpack (6.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/children/1" for ::1 at 2019-12-14 19:48:44 -0500
+Processing by ChildrenController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChild Load (0.4ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:44:in `set_child'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 878)
+
+
+Started GET "/children/1/activities" for ::1 at 2019-12-14 19:48:56 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/children/1/activities"):
+  
+actionpack (6.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/children/1/activity" for ::1 at 2019-12-14 19:49:02 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/children/1/activity"):
+  
+actionpack (6.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/children/1" for ::1 at 2019-12-14 19:51:03 -0500
+Processing by ChildrenController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChild Load (2.0ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/children_controller.rb:44:in `set_child'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 2.0ms | Allocations: 722)
+
+
