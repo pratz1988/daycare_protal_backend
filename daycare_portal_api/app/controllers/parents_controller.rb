@@ -13,30 +13,30 @@ class ParentsController < ApplicationController
     render json: @parent.to_json(include: :children)
   end
 
-  # POST /parents
-  def create
-    @parent = Parent.new(parent_params)
+  # # POST /parents
+  # def create
+  #   @parent = Parent.new(parent_params)
 
-    if @parent.save
-      render json: @parent, status: :created, location: @parent
-    else
-      render json: @parent.errors, status: :unprocessable_entity
-    end
-  end
+  #   if @parent.save
+  #     render json: @parent, status: :created, location: @parent
+  #   else
+  #     render json: @parent.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-  # PATCH/PUT /parents/1
-  def update
-    if @parent.update(parent_params)
-      render json: @parent
-    else
-      render json: @parent.errors, status: :unprocessable_entity
-    end
-  end
+  # # PATCH/PUT /parents/1
+  # def update
+  #   if @parent.update(parent_params)
+  #     render json: @parent
+  #   else
+  #     render json: @parent.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-  # DELETE /parents/1
-  def destroy
-    @parent.destroy
-  end
+  # # DELETE /parents/1
+  # def destroy
+  #   @parent.destroy
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
