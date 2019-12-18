@@ -46,6 +46,6 @@ class ActivitiesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def activity_params
-      params.require(:activity).permit(:breakfast, :morningActivity, :lunch, :napStartTime, :napEndTime, :afternoonSnack, :afternoonActivity, :date)
+      params.require(:activity).permit(:breakfast, :morningActivity, :lunch, :napStartTime, :napEndTime, :afternoonSnack, :afternoonActivity, :date, :child_id, :teacher_id)
     end
 end
