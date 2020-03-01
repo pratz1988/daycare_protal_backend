@@ -47,4 +47,4 @@ Note from Parents
 
 # About the author
 
-Prathyusha is a budding programmer, curious about various things in programming. If you have any suggestions or questions, please feel free to reach out to me @ prathyusha.jaddu@gmail.com
+I (Prathyusha) am a budding programmer, curious about various things in programming. If you have any suggestions or questions, please feel free to reach out to me @ prathyusha.jaddu@gmail.com
