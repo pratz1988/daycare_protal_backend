@@ -19,25 +19,31 @@ Enhancements
 
 High Priority 
 
-#1 - Login using proper authentication and maintaining session
-#2 - Add Home button when you are in the login page for parents and teachers
+1 - Login using proper authentication and maintaining session
+
+2 - Add Home button when you are in the login page for parents and teachers
 
 Parents 
 
-#1 - Add a calendar view so that a parent can look at the activity for any given day
-#2 - Add offline chat like interaction between teachers and parents 
-#3 – Along with the weekdays, show the actual dates
+1 - Add a calendar view so that a parent can look at the activity for any given day
+
+2 - Add offline chat like interaction between teachers and parents 
+
+3 – Along with the weekdays, show the actual dates
 
 Teachers
 
-#1 - Add capability to look at what’s been entered
-#2 – in addition, give ability for teacher to correct/update an activity
-#3 - List of values (dropdowns) for various items
-#4 – Use Date object / calendar for Date
+1 - Add capability to look at what’s been entered
+
+2 – in addition, give ability for teacher to correct/update an activity
+
+3 - List of values (dropdowns) for various items
+
+4 – Use Date object / calendar for Date
 
 Note from Parents
 
-#1 – Ability to select a note and edit/delete it
+1 – Ability to select a note and edit/delete it
 
 # About the author
 
